@@ -24,5 +24,4 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 
 #### Lots of Hardwork has been made on this project
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://satyajiit.xyz)
-[![GitHub followers](https://img.shields.io/github/followers/satyajiit?style=social&label=Follow&maxAge=2592000)](https://github.com/satyajiit?tab=followers) <br>
-[![LinkedIN](/Screen/link.png)](https://www.linkedin.com/in/satyajiit/)
+[![GitHub followers](https://img.shields.io/github/followers/satyajiit?style=social&label=Follow&maxAge=2592000)](https://github.com/satyajiit?tab=followers)
