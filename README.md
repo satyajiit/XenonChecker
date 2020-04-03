@@ -21,6 +21,18 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 &nbsp;
 [![GitHub followers](https://img.shields.io/github/followers/satyajiit?style=social&label=Follow&maxAge=2592000)](https://github.com/satyajiit?tab=followers)
 
+### USPS & FEATURES
+
+* Flask
+* Responsive Material Design
+* Add new questions on the go.
+* Analysis of newly added questions
+
+### DEPENDENCY
+
+* Rake_nltk
+* Flask
+
 
 #### Lots of Hardwork has been made on this project
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://satyajiit.xyz)
