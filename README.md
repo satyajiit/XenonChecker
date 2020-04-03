@@ -33,6 +33,11 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 * Rake_nltk
 * Flask
 
+### SCREENSHOTS FROM MOBILE
+<img src="/screenshots/1.jpg" height="695" width="450" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="/screenshots/2.jpg" height="695" width="450" />&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 #### Lots of Hardwork has been made on this project
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://satyajiit.xyz)
