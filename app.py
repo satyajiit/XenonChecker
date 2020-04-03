@@ -48,17 +48,26 @@ def load_key(number):
 
 
 questions = [
-    "what is AI?"
+    "What is Internet?"
 ]
 answers = [
-    'The theory and development of computer systems able to perform tasks normally requiring human intelligence,'
-    'such as visual perception, speech recognition, decision-making, and translation between languages.'
+    'A global computer network providing a variety of information and communication facilities, consisting of interconnected networks using standardized communication protocols.'
 ]
-KEY = [{'human': 5, 'recognition': 5, 'computer': 5, 'able': 5, 'visual': 5, 'speech': 5, 'task': 5, 'translation': 5,
-        'making': 5,
-        'perception': 5, 'language': 5, 'development': 5, 'perform': 5, 'normally': 5, 'intelligence': 5, 'decision': 5,
-        'system': 5,
-        'theory': 8, 'requiring': 7}]
+KEY = [{
+  "communication": 7, 
+  "computer": 16, 
+  "consisting": 7, 
+  "facility": 7, 
+  "global": 7, 
+  "information": 7, 
+  "interconnected": 7, 
+  "network": 7, 
+  "protocol": 7, 
+  "providing": 7, 
+  "standardized": 7, 
+  "using": 7, 
+  "variety": 7
+}]
 
 
 # GET ITEM COUNT
@@ -153,6 +162,8 @@ def check():
                         result = result + dict[j] * max_score
                         matched.append(question_index - 1)
             z += 1
+        if result > 10:
+            result = 10;
         return str(result) + "#" + load_ans
 
 
@@ -183,13 +194,14 @@ def delete_table_data():
 
 
 def add_data(data_listing, each_val):
-    values_list = []
+    values_list2 = []
     z = 0
     for x in range(0, len(data_listing)):
-        values_list.append(each_val)
+        values_list2.append(each_val)
         z += each_val
-    values_list[0] += 100 - sum(values_list)
-    return values_list
+    values_list2[0] += (100 - sum(values_list2))
+    print(values_list2)
+    return values_list2
 
 
 def add_to_table(question, answer, key):
@@ -207,12 +219,17 @@ def add_question():
     r = Rake()
     r.extract_keywords_from_text(answer_data)
     data_list = lematize(break_phrases(r.get_ranked_phrases()))
+    data_list = list(set(data_list))
     each_value = int(100 / len(data_list))
     values_list = add_data(data_list, each_value)
-    dict_data = {data_list[i]: values_list[i] for i in range(0, len(values_list))}
+    print(values_list)
+    print(data_list)
+    dict_data = {data_list[i]: values_list[i] for i in range(0, len(data_list))}
+    print(dict_data)
     add_to_table(question_data, answer_data, json.dumps(dict_data))
     return dict_data
 
+#host='0.0.0.0'
 
 if __name__ == '__main__':
-    app.run(debug=True,port=int(os.environ.get('PORT', 8080)))
+    app.run(debug=True, port=int(os.environ.get('PORT', 8080)))

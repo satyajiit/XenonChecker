@@ -241,7 +241,11 @@
     success: function(response){
         if (response === "ADDED") {
             $('#cardData').text("Sample Questions Added Successfully. Refreshing page....");
-              window.location.replace("/");
+
+            setTimeout(function(){
+            window.location.href = '/?q=1';
+         }, 3000);
+
         }
     }
 })
