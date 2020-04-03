@@ -55,6 +55,7 @@ Thats it 😉
 python app.py
 ```
 
+
 ### DEPLOY TO FIREBASE HOSTING WITH CLOUD RUN
 Want to deploy on firebase hosting?
 CloudRun will make it possible by providing a CDN.
@@ -76,6 +77,72 @@ XenonChecker (root dir)
 ├── firebase.json
 ├── .firebaserc
 ```
+#### STEP2:
+Dockerfile
+```
+FROM python:3.7
+
+RUN pip install Flask gunicorn
+RUN pip install rake-nltk
+RUN pip install nltk
+RUN pip install PyDictionary
+
+COPY src/ app/
+WORKDIR /app
+
+RUN python -m nltk.downloader all -d /usr/local/nltk_data
+
+ENV PORT 8080
+
+CMD exec gunicorn --bind :$PORT --workers 8 app:app
+```
+#### STEP3:
+From Server dir execute the following (Make sure you have performed gcloud init and set the project id):
+```
+gcloud builds submit --tag gcr.io/[PROJECT-ID]/[ANY_NAME_OF_SERVICE]
+//Hit yes if asked to enable APIs
+
+gcloud run deploy --image gcr.io/[PROJECT-ID]/[ANY_NAME_OF_SERVICE] --memory 1G
+//Select fullyManaged Cloud run and region to us-central1
+```
+#### STEP4:
+Setup Firebase files:
+.firebaserc
+```
+{
+    "projects" :{
+        "default" : "xenonchecker"
+    }
+}
+```
+firebase.json
+```
+{
+
+"hosting" : {
+
+    "public" : "static",
+    "ignore" : [
+        "firebase.json"
+    ],
+    "rewrites" : [{
+"source" : "**",
+"run" : {
+
+    "serviceId" : "[ANY_NAME_OF_SERVICE]"
+}
+    }]
+}
+
+}
+```
+#### STEP5:
+Deploy on firebase hosting:
+```
+firebase deploy --only hosting  
+```
+
+* Feel free to reach me , if you are stuck!
 
 ### SCREENSHOTS FROM MOBILE
 <img src="/screenshots/1.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
