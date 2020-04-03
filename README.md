@@ -49,7 +49,7 @@ Download nltk Data if not done:
 python -m nltk.downloader all
 ```
 
-####STEP3:
+#### STEP3:
 Thats it 😉
 ```
 python app.py
