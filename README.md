@@ -55,7 +55,7 @@ Thats it 😉
 python app.py
 ```
 
-
+<br><br>
 ### DEPLOY TO FIREBASE HOSTING WITH CLOUD RUN
 Want to deploy on firebase hosting?
 CloudRun will make it possible by providing a CDN.
