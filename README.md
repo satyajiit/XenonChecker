@@ -144,6 +144,7 @@ firebase deploy --only hosting
 
 * Feel free to reach me , if you are stuck!
 
+<br><br>
 ### SCREENSHOTS FROM MOBILE
 <img src="/screenshots/1.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="/screenshots/2.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
@@ -161,7 +162,7 @@ firebase deploy --only hosting
 
 
 
-
+<br>
 #### Lots of Hardwork has been made on this project
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://satyajiit.xyz)
 [![GitHub followers](https://img.shields.io/github/followers/satyajiit?style=social&label=Follow&maxAge=2592000)](https://github.com/satyajiit?tab=followers)
