@@ -33,6 +33,28 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 * Rake_nltk
 * Flask
 
+### STEPS TO RUN ON LOCAL SYSTEM
+
+#### STEP1:
+Get the following dependencies:
+```
+pip install rake-nltk
+pip install PyDictionary
+pip install flask
+pip install nltk
+```
+#### STEP2:
+Download nltk Data if not done:
+```
+python -m nltk.downloader all
+```
+
+####STEP3:
+Thats it 😉
+```
+python app.py
+```
+
 ### SCREENSHOTS FROM MOBILE
 <img src="/screenshots/1.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="/screenshots/2.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,17 +68,7 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 <img src="/screenshots/7.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="/screenshots/8.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 
-### STEPS TO RUN ON LOCAL SYSTEM
 
-#### STEP1:
-
-Get the following dependencies:
-```
-pip install rake-nltk
-pip install PyDictionary
-pip install flask
-pip install nltk
-```
 
 
 
