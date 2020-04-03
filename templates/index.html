@@ -1,0 +1,342 @@
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XenonChecker - Ultimate Subjective Answers Checker</title>
+    <link rel="icon" type="image/png" sizes="16x16" href= "{{ url_for('static', filename = 'images/favicon.ico') }}">
+   <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/materialize.min.css') }}"  media="screen,projection"/>
+    <script src="{{ url_for('static', filename = 'js/timer.js') }}"></script>
+    <script
+  src="{{ url_for('static', filename = 'jquery-3.4.1.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<nav class="purple">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">&nbsp;XenonChecker</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+        <li><a href="/add">Add Question</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <div class="row">
+    <div class="col s12 m5">
+      <div class="card-panel white">
+        <span class="black-text">
+            <p><b>XenonChecker</b><br>
+            Automatically Checks Solution of Subjective type Questions.</p>
+            <p>INT 404<br>
+                Upinder Mam<br>
+                Lovely Professional University</p>
+            <small style="color: purple">V1.01</small></p>
+        </span>
+      </div>
+    </div>
+  </div>
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li></a></li>
+        <li><a href="/add"><i class="material-icons left">add_circle</i>Add Question</a></li></a></a></li>
+        <li><a href="/about"><i class="material-icons left">person</i>About</a></li></a></a></li>
+  </ul>
+
+
+{#End of Nav , Logic for Body Starts Here#}
+{% if questionsCount==0 %}
+    <br>
+    <br>
+      <div class="container">
+  <div class="row center">
+    <div class="col s12">
+
+
+      <div class="card">
+        <div class="card-content black-text">
+          <span class="card-title" id="cardTitle">NO QUESTIONS FOUND</span>
+
+                <div class="preloader-wrapper big active" style="display:none;" id="loader">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+            <p id="dummyBr" style="display: none"><br></p>
+          <p id="cardData">The database has no questions yet. Please add some questions or load sample data.</p>
+        </div>
+        <div class="card-action">
+          <a href="/add" class="purple-text waves-effect waves-light">ADD</a>
+          <a href="javascript:loadSample()" class="purple-text">SAMPLE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+    <br>
+     <br>
+{% else %}
+    <br>
+    <br>
+      {% if questionData is defined %}
+    <script>
+         let maxTime = 30 * 1000;
+        let distance = 30 * 1000;
+         const time = setInterval(function () {
+             runTimer();
+         }, 1000);</script>
+          {% endif %}
+    <div class="container">
+
+    {% if questionData is undefined %}
+         <div class="row center">
+    <div class="col s12">
+      <div class="card-panel white">
+    <span class="black-text">
+        <i class="material-icons large" style="color:purple">perm_identity</i>
+        <p id="startLoading">Hey there , Would you like to start the test now?</p>
+        <a href="javascript:startTest()" id="btnStartTest" class="waves-effect waves-light btn-floating btn-large purple"><i class="material-icons">play_arrow</i></a>
+
+    </span>
+      </div>
+    </div>
+         </div>
+        {% else %}
+
+ <div class="row">
+    <div class="col s12">
+      <div class="card-panel white">
+            <div class="progress">
+      <div class="determinate purple" id="progressBar" style="width: 0%"></div>
+  </div>
+        <span class="black-text">
+            <p id="timerData">5m 0s</p>
+            <p><b>{{ questionToLoad }}. &nbsp;{{ questionData[0] }}?</b></p>
+              <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea2" class="materialize-textarea purple-text" data-length="350"></textarea>
+            <label for="textarea2">Type your answer here..</label>
+          </div>
+        </div>
+
+<div class="right-align"> <a id="submitBtn" href="javascript:sendAnswer()" class="waves-effect waves-light btn purple">Submit</a></div>
+      </form>
+    </div>
+
+        </span>
+
+
+      </div>
+    </div>
+  </div>
+{% endif %}
+    </div>
+
+{#    START OF ANSWER CARD#}
+
+     <div class="container" id="ansHiddenCard" style="display: none">
+
+ <div class="row">
+    <div class="col s12">
+      <div class="card-panel white">
+
+    <span class="black-text">
+
+        <p id="scoreCard"></p>
+         <p id="ansCard"></p>
+<div class="right-align">
+    {% if questionData is defined and questionsCount | int >  questionToLoad | int %}
+    <a id="nxtQ" href="javascript:nextQuestion()" class="waves-effect waves-light btn purple">NEXT</a>
+
+        {% else %}
+         <a id="solutionBtn" href="javascript:$('#modal1').modal('open');" class="waves-effect waves-light btn purple">FINISH</a>
+        <p><small class="green-text">All Questions Done.</small></p>
+    {% endif %}
+        </div>
+    </span>
+
+      </div>
+
+    </div>
+ </div>
+     </div>
+
+{% endif %}
+
+<!-- Modal Trigger -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>All Questions Finished!</h4>
+      <p>You have completed all the questions present in the database.<br>Would you like to start again?</p>
+    </div>
+    <div class="modal-footer">
+         <a href="javascript:$('#modal1').modal('close');" class="modal-close waves-effect waves-green btn-flat">NO</a>
+      <a href="javascript:restartQuestions();" id="yesBtn" class="modal-close waves-effect waves-green btn purple">YES</a>
+    </div>
+  </div>
+
+</body>
+
+
+   <footer class="page-footer purple">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">XenonChecker</h5>
+                  <p class="grey-text text-lighten-4">Auto Checks Solution of Subjective type Questions.<br>AI PROJECT INT404</p>
+                  <p>Assigned by: Upinder Mam</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            &nbsp;&nbsp;© 2020 Copyright all right reserved
+            <a class="grey-text text-lighten-4 right" href="#!">v1.01</a>
+            </div>
+          </div>
+        </footer>
+
+   <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+<script>
+
+    function loadSample(){
+        $('#loader').show();
+        $('#dummyBr').show();
+        $('.card-action').hide();
+        $('#cardData').text("Please wait while XenonChecker load some sample data...");
+         $('#cardTitle').text("LOADING UP DATA");
+
+         $.ajax({
+    url: '/loadDemo',
+    type: 'GET',
+    success: function(response){
+        if (response === "ADDED") {
+            $('#cardData').text("Sample Questions Added Successfully. Refreshing page....");
+              window.location.replace("/");
+        }
+    }
+})
+
+    }
+
+     function showToast(str){
+         const toastHTML = '<span>'+str+'</span><button class="btn-flat toast-action" onclick="M.Toast.dismissAll();">OK</button>';
+            M.toast({html: toastHTML});
+    }
+
+    function sendAnswer(){
+
+
+        clearInterval(time);
+
+        if ($('#submitBtn').text() === "Please Wait...") {
+            showToast("Please Wait...");
+            return;
+        }
+
+        $('#submitBtn').text("Please Wait...");
+
+        let data = $("#textarea2").val();
+        if (data === "")
+            data = "X";
+
+            $.ajax({
+    url: '/checkAnswer?q={{ questionToLoad }}&a='+data,
+    type: 'GET',
+    success: function(response){
+
+        let marks = response.substring(0, response.indexOf("#"))
+        let ans = response.substring(response.indexOf("#")+1)
+        $('#scoreCard').html("You Scored <b class='purple-text'>"+marks+"</b> out of 10.")
+        $('#ansCard').html("Trained Answer:<br><div class='purple-text'>"+ans+"</div>")
+        $('#ansHiddenCard').show();
+
+         $('html, body').animate({
+        scrollTop: $("#ansHiddenCard").offset().top
+    }, 2000);
+
+         $('#submitBtn').text("Submitted");
+         $('#submitBtn').addClass('disabled');
+
+        const toastHTML = '<span>Solution Loaded!</span><button class="btn-flat toast-action" onclick="M.Toast.dismissAll();">OK</button>';
+        M.toast({html: toastHTML});
+
+      }
+})
+
+    }
+
+    function nextQuestion(){
+
+        {% if questionToLoad is defined %}
+
+        if ( $('#nxtQ').text()==="Loading..."){
+                showToast("Please Wait...");
+                return
+        }
+
+          $('#nxtQ').text("Loading...");
+            window.location.replace("/?q={{ (questionToLoad | int) + 1 }}");
+
+        {% endif %}
+    }
+
+    function startTest() {
+
+        $('#btnStartTest').addClass('disabled');
+         $('#startLoading').text("Starting Test...");
+          window.location.replace("/?q=1");
+
+    }
+
+    function restartQuestions(){
+
+        $('#yesBtn').text("Refreshing..");
+        window.location.replace("/?q=1");
+    }
+
+
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+     $(document).ready(function() {
+    $('input#input_text, textarea#textarea2').characterCounter();
+  });
+
+      $(document).ready(function(){
+    $('#modal1').modal();
+  });
+
+
+</script>
+</html>

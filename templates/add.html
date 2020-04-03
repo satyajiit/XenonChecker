@@ -1,0 +1,262 @@
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XenonChecker - Ultimate Subjective Answers Checker</title>
+    <link rel="icon" type="image/png" sizes="16x16" href= "{{ url_for('static', filename = 'images/favicon.ico') }}">
+   <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/materialize.min.css') }}"  media="screen,projection"/>
+
+    <script
+  src="{{ url_for('static', filename = 'jquery-3.4.1.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<nav class="purple">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">&nbsp;XenonChecker</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+        <li><a href="/add">Add Question</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <div class="row">
+    <div class="col s12 m5">
+      <div class="card-panel white">
+        <span class="black-text">
+            <p><b>XenonChecker</b><br>
+            Automatically Checks Solution of Subjective type Questions.</p>
+            <p>INT 404<br>
+                Upinder Mam<br>
+                Lovely Professional University</p>
+            <small style="color: purple">V1.01</small></p>
+        </span>
+      </div>
+    </div>
+  </div>
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li></a></li>
+        <li><a href="/add"><i class="material-icons left">add_circle</i>Add Question</a></li></a></a></li>
+        <li><a href="/about"><i class="material-icons left">person</i>About</a></li></a></a></li>
+  </ul>
+
+<br>
+<br>
+     <div class="container">
+  <div class="row center" id="newQ">
+    <div class="col s12">
+
+
+      <div class="card">
+        <div class="card-content black-text">
+             <i class="material-icons medium" style="color:purple">add</i>
+          <span class="card-title" id="cardTitle">ADD QUESTIONS</span>
+            <small class="small-subtitle grey-text">XenonChecker will automatically train the data!</small>
+  <span class="black-text">
+ <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea purple-text" data-length="100"></textarea>
+            <label for="textarea1">Type your question here..</label>
+          </div>
+        </div>
+ </form>
+    </div>
+       <div class="row" >
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea2" class="materialize-textarea purple-text" data-length="350"></textarea>
+            <label for="textarea2">Type your answer here..</label>
+          </div>
+        </div>
+
+<div class="right-align"> <a id="submitBtn" href="javascript:addQuestion()" class="waves-effect waves-light btn purple">ADD</a></div>
+      </form>
+    </div>
+
+          </span>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+          <div class="row" id="qAdded" style="display: none;">
+    <div class="col s12">
+          <div class="card">
+        <div class="card-content black-text">
+        <span class="card-title" id="cardTitle">SUMMARY</span>
+        <p>Lemmatized Words</p><br>
+            <p id="lemaData"></p><br>
+                <p>Keys with assigned Scores</p>
+            <p id="tableData"></p><br>
+            <p><div class="right-align"> <a id="addNew" href="javascript:addNewQuestion()" class="waves-effect waves-light btn purple">ADD ANOTHER</a></div>
+        </p>
+        </div>
+        </div>
+    </div>
+          </div>
+
+     </div>
+
+
+   <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+
+<style>
+
+
+</style>
+
+</body>
+ <footer class="page-footer purple">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">XenonChecker</h5>
+                  <p class="grey-text text-lighten-4">Auto Checks Solution of Subjective type Questions.<br>AI PROJECT INT404</p>
+                  <p>Assigned by: Upinder Mam</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            &nbsp;&nbsp;© 2020 Copyright all right reserved
+            <a class="grey-text text-lighten-4 right" href="#!">v1.01</a>
+            </div>
+          </div>
+        </footer>
+
+<script>
+
+
+    function addQuestion(){
+
+        if ($('#submitBtn').text() === "Adding..."){
+        showToast("Please wait...")
+        return;
+    }
+
+        if ($('#textarea1').val().length < 5 || $('#textarea2').val().length < 5){
+
+           showToast('Input field has too short data!');
+            return
+        }
+
+        ($('#submitBtn').text("Adding..."));
+
+        addToDatabase();
+
+    }
+
+    function addNewQuestion() {
+
+        ($('#submitBtn').removeClass("disabled"));
+           ($('#submitBtn').text("ADD"));
+        $("#qAdded").hide(2000);
+             $('html, body').animate({
+        scrollTop: $("#newQ").offset().top
+    }, 2000);
+
+    }
+
+
+
+
+    function addToDatabase(){
+
+             let question = $("#textarea1").val();
+     let answer = $("#textarea2").val();
+
+    // answer = "Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve "+
+         //  +"from experience without being explicitly programmed. Machine learning focuses on the development of computer programs that can access "+
+        //   +"data and use it learn for themselves.";
+
+    // question = "what is Machine Learning?";
+
+            $.ajax({
+    url: '/addQuestion?q='+question+'&a='+answer,
+    type: 'GET',
+    success: function(response){
+
+           ($('#submitBtn').addClass("disabled"));
+           ($('#submitBtn').text("Added"));
+           $("#qAdded").show();
+
+             $('html, body').animate({
+        scrollTop: $("#qAdded").offset().top
+    }, 2000);
+
+        let htmlData="";
+        let prefix=" <table class=\"striped responsive-table\">\n" +
+            "        <thead>\n" +
+            "          <tr>\n" +
+             "              <th class='purple-text'>ID</th>\n" +
+            "              <th class='purple-text'>KEY NAME</th>\n" +
+            "              <th class='purple-text'>ASSIGNED SCORE</th>\n" +
+            "          </tr>\n" +
+            "        </thead>\n" +
+            "\n" +
+            "        <tbody>";
+        let tableData = "";
+        let c = 1;
+
+        for (const data in response){
+            htmlData = htmlData + '<div class="chip">'+data+'</div>';
+             tableData+= '<tr><td>'+c+'</td><td>'+data.toUpperCase()+'</td><td>'+response[data]+'</td></tr>';
+             c++;
+        }
+
+
+        $("#lemaData").html(htmlData);
+         $("#tableData").html(prefix+tableData+"</tbody></table>");
+
+    }
+    })
+
+    }
+
+
+    function showToast(str){
+         const toastHTML = '<span>'+str+'</span><button class="btn-flat toast-action" onclick="M.Toast.dismissAll();">OK</button>';
+            M.toast({html: toastHTML});
+    }
+
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+      $(document).ready(function() {
+    $('input#input_text, textarea#textarea2').characterCounter();
+      $('input#input_text, textarea#textarea1').characterCounter();
+  });
+  });
+
+</script>
+</html>

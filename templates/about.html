@@ -1,0 +1,222 @@
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XenonChecker - Ultimate Subjective Answers Checker</title>
+    <link rel="icon" type="image/png" sizes="16x16" href= "{{ url_for('static', filename = 'images/favicon.ico') }}">
+   <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/materialize.min.css') }}"  media="screen,projection"/>
+
+    <script
+  src="{{ url_for('static', filename = 'jquery-3.4.1.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<nav class="purple">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">&nbsp;XenonChecker</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+        <li><a href="/add">Add Question</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <div class="row">
+    <div class="col s12 m5">
+      <div class="card-panel white">
+        <span class="black-text">
+            <p><b>XenonChecker</b><br>
+            Automatically Checks Solution of Subjective type Questions.</p>
+            <p>INT 404<br>
+                Upinder Mam<br>
+                Lovely Professional University</p>
+            <small style="color: purple">V1.01</small></p>
+        </span>
+      </div>
+    </div>
+  </div>
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li></a></li>
+        <li><a href="/add"><i class="material-icons left">add_circle</i>Add Question</a></li></a></a></li>
+        <li><a href="/about"><i class="material-icons left">person</i>About</a></li></a></a></li>
+  </ul>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+
+
+      <div class="card">
+        <div class="card-content black-text">
+          <h5 class="purple-text">Dependencies of XenonChecker</h5>
+            <br><p><b>Built with Python 3.7</b></p>
+
+            <br><p><a href="https://pypi.org/project/rake-nltk/" target="_blank" rel="noreferrer"><b>Rack NLTK</b></a></p>
+            <p>RAKE short for Rapid Automatic Keyword Extraction algorithm, is a domain independent keyword extraction algorithm which tries to determine key phrases in a body of text by analyzing the frequency of word appearance and its co-occurance with other words in the text.</p>
+            <p class="green-text">pip install rake-nltk</p>
+
+       <br><p><a href="https://pypi.org/project/PyDictionary/" target="_blank" rel="noreferrer"><b>PyDictionary</b></a></p>
+            <p>PyDictionary is a Dictionary Module for Python 2/3 to get meanings.<br>XenonChecker uses it to find synonyms of words.</p>
+            <p class="green-text">pip install PyDictionary</p>
+
+              <br><p><a href="https://pypi.org/project/json5/" target="_blank" rel="noreferrer"><b>json5</b></a></p>
+            <p>A Python implementation of the JSON5 data format.<br>Used to dump dictionary to string.</p>
+            <p class="green-text">pip install json5</p>
+
+             <br><p><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noreferrer"><b>Flask</b></a></p>
+            <p>Flask is a micro web framework written in Python.<br>This web page is possible because of flask!</p>
+            <p class="green-text">pip install flask</p>
+
+             <br><p><a href="https://pypi.org/project/nltk/" target="_blank" rel="noreferrer"><b>nltk</b></a></p>
+            <p>The Natural Language Toolkit.<br>XenonChecker uses it to lematize the words!</p>
+            <p class="green-text">pip install nltk</p>
+
+            <br>
+            <p>If you like the project , don't forget to fork and star!</p><br>
+            <p>Available on: <br><a href="#" rel="noreferrer" target="_blank" class="purple-text"><h6 class="purple-text">GITHUB</h6></a> </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+  <div class="row">
+    <div class="col s12">
+
+
+      <div class="card">
+        <div class="card-content black-text">
+          <h5 class="purple-text">TEAM MEMBERS</h5>
+
+
+             <div class="row">
+    <div class="col s12">
+
+    <div class="col s12 m4">
+      <div class="card small indigo darken-4">
+        <div class="card-content white-text">
+          <span class="card-title">Satyajit Pradhan</span>
+          <p>A simple nature and simple choices, dream of the stars with feet on the ground. This is what I think and with the same in my heart, I am marching towards my goal.</p>
+        </div>
+        <div class="card-action">
+          <a href="https://satyajiit.xyz" target="_blank" rel="noopener noreferrer">WEBSITE</a>
+        </div>
+      </div>
+    </div>
+
+                 <div class="col s12 m4">
+      <div class="card small blue darken-4">
+        <div class="card-content white-text">
+          <span class="card-title">Satyam Rai</span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="https://github.com/satyajiit" target="_blank" rel="noopener noreferrer">GITHUB</a>
+        </div>
+      </div>
+    </div>
+
+        </div>
+      </div>
+
+
+             <div class="row">
+    <div class="col s12">
+
+    <div class="col s12 m4">
+      <div class="card small green darken-4">
+        <div class="card-content white-text">
+          <span class="card-title">Vishal Pandey</span>
+          <p>A simple nature and simple choices, dream of the stars with feet on the ground. This is what I think and with the same in my heart, I am marching towards my goal.</p>
+        </div>
+        <div class="card-action">
+          <a href="https://satyajiit.xyz" target="_blank" rel="noopener noreferrer">WEBSITE</a>
+        </div>
+      </div>
+    </div>
+
+                 <div class="col s12 m4">
+      <div class="card small amber darken-4">
+        <div class="card-content white-text">
+          <span class="card-title">Nikhil Singh</span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="https://github.com/satyajiit" target="_blank" rel="noopener noreferrer">GITHUB</a>
+        </div>
+      </div>
+    </div>
+
+        </div>
+      </div>
+
+  </div>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+   <script type="text/javascript" src="{{ url_for('static', filename = 'js/materialize.min.js') }}"></script>
+</body>
+
+ <footer class="page-footer purple">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">XenonChecker</h5>
+                  <p class="grey-text text-lighten-4">Auto Checks Solution of Subjective type Questions.<br>AI PROJECT INT404</p>
+                  <p>Assigned by: Upinder Mam</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            &nbsp;&nbsp;© 2020 Copyright all right reserved
+            <a class="grey-text text-lighten-4 right" href="#!">v1.01</a>
+            </div>
+          </div>
+        </footer>
+
+<script>
+
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+</script>
+</html>

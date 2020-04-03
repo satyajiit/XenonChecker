@@ -1,0 +1,18 @@
+{
+
+"hosting" : {
+
+    "public" : "static",
+    "ignore" : [
+        "firebase.json"
+    ],
+    "rewrites" : [{
+"source" : "**",
+"run" : {
+
+    "serviceId" : "xenonchecker-fire"
+}
+    }]
+}
+
+}
