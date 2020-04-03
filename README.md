@@ -55,6 +55,12 @@ Thats it 😉
 python app.py
 ```
 
+### DEPLOY TO FIREBASE HOSTING WITH CLOUD RUN
+Want to deploy on firebase hosting?
+CloudRun will make it possible by providing a CDN.
+
+#### STEP1:
+Create a direcory structure of the following (Create files manually like firebase.json etc which do not exist on this repo):
 ```
 XenonChecker (root dir)
 ├── server
