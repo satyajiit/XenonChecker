@@ -107,6 +107,7 @@ gcloud run deploy --image gcr.io/[PROJECT-ID]/[ANY_NAME_OF_SERVICE] --memory 1G
 ```
 #### STEP4:
 Setup Firebase files:
+<br>
 .firebaserc
 ```
 {
