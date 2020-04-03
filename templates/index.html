@@ -104,8 +104,8 @@
     <br>
       {% if questionData is defined %}
     <script>
-         let maxTime = 30 * 1000;
-        let distance = 30 * 1000;
+         let maxTime = 3 * 60 * 1000;
+        let distance = 3 * 60 * 1000;
          const time = setInterval(function () {
              runTimer();
          }, 1000);</script>
@@ -134,8 +134,8 @@
       <div class="determinate purple" id="progressBar" style="width: 0%"></div>
   </div>
         <span class="black-text">
-            <p id="timerData">5m 0s</p>
-            <p><b>{{ questionToLoad }}. &nbsp;{{ questionData[0] }}?</b></p>
+            <p id="timerData">3m 0s</p>
+            <p><b>{{ questionToLoad }}. &nbsp;{{ questionData[0] }}</b></p>
               <div class="row">
       <form class="col s12">
         <div class="row">
@@ -243,7 +243,7 @@
             $('#cardData').text("Sample Questions Added Successfully. Refreshing page....");
 
             setTimeout(function(){
-            window.location.href = '/?q=1';
+            window.location.href = '/';
          }, 3000);
 
         }

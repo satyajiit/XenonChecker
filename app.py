@@ -7,6 +7,8 @@ import PyDictionary
 import json
 from nltk.stem import WordNetLemmatizer
 import os
+from datetime import datetime
+from functools import wraps, update_wrapper
 
 app = Flask(__name__)
 
@@ -21,6 +23,19 @@ def create_questions_table():
 
 # CALL TO TABLE CREATE
 create_questions_table()
+
+
+def nocache(view):
+    @wraps(view)
+    def no_cache(*args, **kwargs):
+        response = make_response(view(*args, **kwargs))
+        response.headers['Last-Modified'] = datetime.now()
+        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '-1'
+        return response
+        
+    return update_wrapper(no_cache, view)
 
 
 def load_question(number):
@@ -96,34 +111,33 @@ def lematize(lista):
 
 
 @app.route("/", methods=['GET'])
+@nocache
 def index():
     count_itm = items_present()
     if request.method == 'GET' and request.args.get("q") != "" and request.args.get("q") is not None:
         index_question = request.args.get("q")
         if int(index_question) <= count_itm:
-            template = render_template("index.html", questionsCount=count_itm, questionToLoad=request.args.get("q"),
+            return render_template("index.html", questionsCount=count_itm, questionToLoad=request.args.get("q"),
                                    questionData=load_question(index_question))
-            response = make_response(template);
-            response.headers['Cache-Control'] = 'public, max-age=300, s-maxage=600'
-            return response;
 
-    template = render_template("index.html", questionsCount=count_itm)
-    response = make_response(template);
-    response.headers['Cache-Control'] = 'public, max-age=300, s-maxage=600'
-    return response;
+    return render_template("index.html", questionsCount=count_itm)
+ 
 
 
 @app.route("/about")
+@nocache
 def about():
     return render_template("about.html")
 
 
 @app.route("/add")
+@nocache
 def add():
     return render_template("add.html")
 
 
 @app.route("/checkAnswer")
+@nocache
 def check():
     max_score = 10
     if request.method == 'GET' and request.args.get("a") != "" and request.args.get("a") is not None:
@@ -168,6 +182,7 @@ def check():
 
 
 @app.route("/loadDemo")
+@nocache
 def add_demo_questions():
     msg = "UNKNOWN"
     conn = sqlite3.connect('database.db')
@@ -185,6 +200,7 @@ def add_demo_questions():
 
 
 @app.route("/emptyTable")
+@nocache
 def delete_table_data():
     con = sqlite3.connect("database.db")
     con.execute('delete from QuestionsTable')
@@ -210,6 +226,8 @@ def add_to_table(question, answer, key):
                  (question, answer, key))
     conn.commit()
     conn.close()
+
+
 
 
 @app.route("/addQuestion", methods=['GET'])
