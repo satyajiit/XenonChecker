@@ -55,6 +55,22 @@ Thats it 😉
 python app.py
 ```
 
+
+XenonChecker (root dir)
+├── server
+| ├── src
+|    └── app.py
+|    └── templates
+|       └── all files like index.html 
+|    └── static
+|        └── all files like js 
+| ├── Dockerfile
+├── static
+|  └── leave empty
+├── firebase.json
+├── .firebaserc
+
+
 ### SCREENSHOTS FROM MOBILE
 <img src="/screenshots/1.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="/screenshots/2.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
