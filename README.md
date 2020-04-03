@@ -11,3 +11,18 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 [![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](#)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](#)
 [![forthebadge](https://forthebadge.com/images/badges/ages-12.svg)](#)
+
+
+
+#### SUPPORT THE WORK & DEV
+
+[![GitHub stars](https://img.shields.io/github/forks/satyajiit/XenonChecker?style=social)](https://github.com/satyajiit/XenonChecker/network) &nbsp;
+[![GitHub stars](https://img.shields.io/github/stars/satyajiit/XenonChecker?style=social)](https://github.com/satyajiit/XenonChecker/stargazers)
+&nbsp;
+[![GitHub followers](https://img.shields.io/github/followers/satyajiit?style=social&label=Follow&maxAge=2592000)](https://github.com/satyajiit?tab=followers)
+
+
+#### Lots of Hardwork has been made on this project
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://satyajiit.xyz)
+[![GitHub followers](https://img.shields.io/github/followers/satyajiit?style=social&label=Follow&maxAge=2592000)](https://github.com/satyajiit?tab=followers) <br>
+[![LinkedIN](/Screen/link.png)](https://www.linkedin.com/in/satyajiit/)
