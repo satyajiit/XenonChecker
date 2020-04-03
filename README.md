@@ -1,7 +1,7 @@
 # XenonChecker
 The Ultimate Subjective Answers Checker - INT 404 Project
 
-Project Available @https://xenon.satyajiit.xyz/
+Project Available @https://xenon.satyajiit.xyz
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-YES-blueviolet.svg)](#)
 [![GPLv3 license](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
