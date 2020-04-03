@@ -46,6 +46,20 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 <img src="/screenshots/7.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="/screenshots/8.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 
+### STEPS TO RUN ON LOCAL SYSTEM
+
+#### STEP1:
+
+Get the following dependencies:
+```
+pip install rake-nltk
+pip install PyDictionary
+pip install flask
+pip install nltk
+```
+
+
+
 
 #### Lots of Hardwork has been made on this project
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://satyajiit.xyz)
