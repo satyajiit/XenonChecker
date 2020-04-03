@@ -55,7 +55,7 @@ Thats it 😉
 python app.py
 ```
 
-
+```
 XenonChecker (root dir)
 ├── server
 | ├── src
@@ -69,7 +69,7 @@ XenonChecker (root dir)
 |  └── leave empty
 ├── firebase.json
 ├── .firebaserc
-
+```
 
 ### SCREENSHOTS FROM MOBILE
 <img src="/screenshots/1.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
