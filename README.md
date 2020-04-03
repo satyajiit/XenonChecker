@@ -34,8 +34,8 @@ The Ultimate Subjective Answers Checker - INT 404 Project
 * Flask
 
 ### SCREENSHOTS FROM MOBILE
-<img src="/screenshots/1.jpg" height="695" width="450" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="/screenshots/2.jpg" height="695" width="450" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="/screenshots/1.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="/screenshots/2.jpg" height="617" width="400" />&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
